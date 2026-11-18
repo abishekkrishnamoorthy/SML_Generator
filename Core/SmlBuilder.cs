@@ -12,6 +12,7 @@ namespace SML_Generator
         private readonly List<ISecsCommand> _commands = new List<ISecsCommand>();
 
         private readonly string _filePath;
+         
 
         public SmlBuilder(string filePath)
         {
@@ -21,10 +22,13 @@ namespace SML_Generator
             _filePath = filePath;
         }
 
+
         public void AddCommand(ISecsCommand command)
         {
             _commands.Add(command);
         }
+
+
 
         public bool Build()
         {
@@ -42,8 +46,8 @@ namespace SML_Generator
                     );
                 }
                 sml.AppendLine(command.Generate()+Environment.NewLine+"./");
-              
             }
+
 
             File.WriteAllText(_filePath, sml.ToString());
 
