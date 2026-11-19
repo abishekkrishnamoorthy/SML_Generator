@@ -52,6 +52,7 @@
 	<ItemGroup>
 
 		<Compile Include="Core\SmlBuilder.cs" />
+		<Compile Include="Core\SmlFormat.cs" />
 		<Compile Include="ISecsCommand.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
 

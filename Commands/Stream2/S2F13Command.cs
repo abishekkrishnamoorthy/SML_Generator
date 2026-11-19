@@ -1,5 +1,4 @@
 ﻿
-using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -36,7 +35,7 @@ namespace SML_Generator
             foreach (int ecid in EcidList)
             {
                 sml.AppendLine(
-                    $"    <U4  {ecid}>");
+                    $"{SmlFormat.Tab}<U4 {ecid}>");
             }
 
             sml.AppendLine(">.");
