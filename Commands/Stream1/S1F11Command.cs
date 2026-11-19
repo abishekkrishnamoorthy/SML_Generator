@@ -20,7 +20,6 @@ namespace SML_Generator
         {
             SVIDList = svidList;
         }
-
         public virtual string Generate()
         {
             StringBuilder sml = new StringBuilder();
