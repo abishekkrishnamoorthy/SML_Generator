@@ -25,14 +25,6 @@ namespace SML_Generator
             EventIDList = eventIDList
                 ?? new List<int>();
         }
-        public virtual List<string> Validate()
-        {
-            List<string> errors = new List<string>();
-
-            return errors;
-        }
-
-
         public virtual string Generate()
         {
             StringBuilder sml = new StringBuilder();
@@ -46,7 +38,7 @@ namespace SML_Generator
             string enableValue = IsEnabled ? "TRUE" : "FALSE";
 
             sml.AppendLine(
-                $"    <BOOLEAN [1] {enableValue}>");
+                $"    <BOOLEAN  {enableValue}>");
 
             // Selected CEIDs
             sml.AppendLine(
@@ -55,7 +47,7 @@ namespace SML_Generator
             foreach (int eventID in EventIDList)
             {
                 sml.AppendLine(
-                    $"        <U4 [1] {eventID}>");
+                    $"        <U4  {eventID}>");
             }
 
             sml.AppendLine("    >");

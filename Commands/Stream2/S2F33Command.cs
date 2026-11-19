@@ -28,12 +28,7 @@ namespace SML_Generator
             ReportID = reportID;
             DvidList = dvidList;
         }
-        public virtual List<string> Validate()
-        {
-            List<string> errors = new List<string>();
-
-            return errors;
-        }
+       
         public virtual string Generate()
         {
             StringBuilder sml = new StringBuilder();
@@ -58,7 +53,7 @@ namespace SML_Generator
             foreach (int dvid in DvidList)
             {
                 sml.AppendLine(
-                    $"                <U4 [1] {dvid}>");
+                    $"                <U4  {dvid}>");
             }
 
             sml.AppendLine("            >");

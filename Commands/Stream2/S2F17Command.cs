@@ -13,13 +13,6 @@ namespace SML_Generator
         {
         }
 
-        public virtual List<string> Validate()
-        {
-            List<string> errors = new List<string>();
-
-            return errors;
-        }
-
         public virtual string Generate()
         {
             StringBuilder sml = new StringBuilder();

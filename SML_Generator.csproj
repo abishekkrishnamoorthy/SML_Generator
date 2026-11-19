@@ -36,6 +36,7 @@
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 
+	<!-- Framework References -->
 	<ItemGroup>
 		<Reference Include="System" />
 		<Reference Include="System.Core" />
@@ -47,20 +48,19 @@
 		<Reference Include="System.Xml" />
 	</ItemGroup>
 
+	<!-- Source Files -->
 	<ItemGroup>
+
 		<Compile Include="Core\SmlBuilder.cs" />
 		<Compile Include="ISecsCommand.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
 
-		<Compile Include="Commands\S1F1Command.cs" />
-		<Compile Include="Commands\S2F13Command.cs" />
-		<Compile Include="Commands\S2F15Command.cs" />
-		<Compile Include="Commands\S2F17Command.cs" />
-		<Compile Include="Commands\S2F23Command.cs" />
-		<Compile Include="Commands\S2F29Command.cs" />
-		<Compile Include="Commands\S2F33Command.cs" />
-		<Compile Include="Commands\S2F35Command.cs" />
-		<Compile Include="Commands\S2F37Command.cs" />
+		<!-- Stream 1 -->
+		<Compile Include="Commands\Stream1\*.cs" />
+
+		<!-- Stream 2 -->
+		<Compile Include="Commands\Stream2\*.cs" />
+
 	</ItemGroup>
 
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

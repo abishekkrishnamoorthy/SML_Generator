@@ -9,12 +9,6 @@ namespace SML_Generator
         public S1F1Command() { 
 
         }
-        public virtual List<string> Validate()
-        {
-            List<string> errors = new List<string>();
-
-            return errors;
-        }
         public virtual string Generate()
         {
             // S1F1 (Are You There) is a header-only request with no data body.

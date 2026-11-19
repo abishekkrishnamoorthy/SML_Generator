@@ -38,12 +38,7 @@ namespace SML_Generator
 
             ConstantList = constantList;
         }
-        public virtual List<string> Validate()
-        {
-            List<string> errors = new List<string>();
-
-            return errors;
-        }
+        
 
         public virtual string Generate()
         {
@@ -58,11 +53,11 @@ namespace SML_Generator
 
                 // Equipment Constant ID
                 sml.AppendLine(
-                    $"        <U4 [1] {constant.Ecid}>");
+                    $"        <U4  {constant.Ecid}>");
 
                 // Equipment Constant Value
                 sml.AppendLine(
-                    $"        <U4 [1] {constant.Value}>");
+                    $"        <U4  {constant.Value}>");
 
                 sml.AppendLine("    >");
             }

@@ -33,13 +33,6 @@ namespace SML_Generator
             ReportIDList = reportIDList;
         }
 
-        public virtual List<string> Validate()
-        {
-            List<string> errors = new List<string>();
-
-            return errors;
-        }
-
         public virtual string Generate()
         {
             StringBuilder sml = new StringBuilder();
@@ -48,15 +41,15 @@ namespace SML_Generator
 
             sml.AppendLine("S2F35 W");
             sml.AppendLine("<L [2]");
-            sml.AppendLine($"    <U4 [1] {DataID}>"); // DATAID
+            sml.AppendLine($"    <U4  {DataID}>"); // DATAID
             sml.AppendLine("    <L [1]");
             sml.AppendLine("        <L [2]");
-            sml.AppendLine($"            <U4 [1] {EventID}>");
+            sml.AppendLine($"            <U4  {EventID}>");
             sml.AppendLine($"            <L [{ReportIDList.Count}]");
 
             foreach (int reportID in ReportIDList)
             {
-                sml.AppendLine($"                <U4 [1] {reportID}>");
+                sml.AppendLine($"                <U4  {reportID}>");
             }
 
             sml.AppendLine("            >");

@@ -23,13 +23,6 @@ namespace SML_Generator
             EcidList = ecidList ?? new List<int>();
         }
 
-        public virtual List<string> Validate()
-        {
-            List<string> errors = new List<string>();
-
-            return errors;
-        }
-
         public virtual string Generate()
         {
             StringBuilder sml = new StringBuilder();
@@ -43,7 +36,7 @@ namespace SML_Generator
             foreach (int ecid in EcidList)
             {
                 sml.AppendLine(
-                    $"    <U4 [1] {ecid}>");
+                    $"    <U4  {ecid}>");
             }
 
             sml.AppendLine(">.");

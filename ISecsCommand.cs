@@ -9,7 +9,6 @@ namespace SML_Generator
     public interface ISecsCommand
     {
         string Name { get; }
-        List<string> Validate();
         string Generate();
     }
 }

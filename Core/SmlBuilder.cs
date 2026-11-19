@@ -18,14 +18,22 @@ namespace SML_Generator
         {
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException("File path cannot be empty.");
-
             _filePath = filePath;
         }
 
 
         public void AddCommand(ISecsCommand command)
         {
-            _commands.Add(command);
+            if (command != null)
+            {
+                _commands.Add(command);
+            }
+                
+        }
+
+        public void AddCommand(List<ISecsCommand> commands)
+        {
+            _commands.AddRange(commands);
         }
 
 
@@ -35,16 +43,7 @@ namespace SML_Generator
             StringBuilder sml = new StringBuilder();
 
             foreach (ISecsCommand command in _commands)
-
             { 
-                List<string> errors = command.Validate();
-
-                if (errors.Count > 0)
-                {
-                    throw new InvalidOperationException(
-                        $"{command.Name}: {string.Join(", ", errors)}"
-                    );
-                }
                 sml.AppendLine(command.Generate()+Environment.NewLine+"./");
             }
 
