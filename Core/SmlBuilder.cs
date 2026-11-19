@@ -11,16 +11,15 @@ namespace SML_Generator
     {
         private readonly List<ISecsCommand> _commands = new List<ISecsCommand>();
 
-        private readonly string _filePath="c:\\temp\\sml.sml";
+        private readonly string _filePath;
          
 
         public SmlBuilder(string filePath)
         {
-            if (filePath != null){
+            if (string.IsNullOrWhiteSpace(filePath))
+                throw new ArgumentException("File path cannot be empty.");
             _filePath = filePath;
-             }
-
-
+        }
         public void AddCommand(ISecsCommand command)
         {
             if (command != null)

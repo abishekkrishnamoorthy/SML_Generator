@@ -28,7 +28,7 @@ namespace SML_Generator
 
             foreach (uint ecid in ECIDList)
             {
-                sml.AppendLine($"    <U4  {ecid}>");
+                sml.AppendLine($"    <U4 {ecid}>");
             }
 
             sml.AppendLine(">.");
