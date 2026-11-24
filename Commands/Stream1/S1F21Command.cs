@@ -8,7 +8,8 @@ namespace SML_Generator
         public List<int> VIDList { get; set; }
 
         public string Name => "S1F21";
-
+        public string Description =>
+            "Data Variable Namelist Request - Requests names and metadata for data variables.";
         public S1F21Command()
         {
             VIDList = new List<int>();
@@ -19,10 +20,9 @@ namespace SML_Generator
             VIDList = vidList;
         }
 
-       
-
         public virtual string Generate()
         {
+            const string tab = "  ";
             StringBuilder sml = new StringBuilder();
 
             sml.AppendLine("S1F21 W");
@@ -30,7 +30,7 @@ namespace SML_Generator
 
             foreach (int vid in VIDList)
             {
-                sml.AppendLine($"    <U4 [1] {vid}>");
+                sml.AppendLine($"{tab}{tab}<U4 [1] {vid}>");
             }
 
             sml.AppendLine(">.");

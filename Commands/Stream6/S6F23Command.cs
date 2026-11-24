@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace SML_Generator
 {
@@ -10,6 +6,8 @@ namespace SML_Generator
     {
         public byte RSDC { get; set; }
         public string Name => "S6F23";
+        public string Description =>
+            "Request Spooled Data - Requests transmission or deletion of spooled messages.";
         public S6F23Command()
         {
             RSDC = 0;

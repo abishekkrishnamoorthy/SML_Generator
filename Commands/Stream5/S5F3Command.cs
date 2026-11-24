@@ -4,67 +4,71 @@ using System.Text;
 
 namespace SML_Generator
 {
-	public class S5F3Command : ISecsCommand
-	{
-		public byte ALED { get; set; }
-		public uint ALID { get; set; }
-		public bool AllAlarms { get; set; }
+    public class S5F3Command : ISecsCommand
+    {
+        public byte ALED { get; set; }
+        public uint ALID { get; set; }
+        public bool AllAlarms { get; set; }
 
-		public string Name => "S5F3";
+        public string Name => "S5F3";
 
-		public S5F3Command()
-		{
-			ALED = 1;
-			ALID = 0;
-			AllAlarms = false;
-		}
+        public string Description =>
+            "Enable/Disable Alarm Send - Enables or disables reporting for selected alarms.";
 
-		public S5F3Command(byte aled, uint alid)
-		{
-			ALED = aled;
-			ALID = alid;
-			AllAlarms = false;
-		}
+        public S5F3Command()
+        {
+            ALED = 1;
+            ALID = 0;
+            AllAlarms = false;
+        }
 
-		public S5F3Command(byte aled, bool allAlarms)
-		{
-			ALED = aled;
-			ALID = 0;
-			AllAlarms = allAlarms;
-		}
+        public S5F3Command(byte aled, uint alid)
+        {
+            ALED = aled;
+            ALID = alid;
+            AllAlarms = false;
+        }
 
-		public virtual List<string> Validate()
-		{
-			List<string> errors = new List<string>();
+        public S5F3Command(byte aled, bool allAlarms)
+        {
+            ALED = aled;
+            ALID = 0;
+            AllAlarms = allAlarms;
+        }
 
-			if (ALED != 0 && ALED != 1)
-			{
-				errors.Add("ALED must be 0 or 1.");
-			}
+        public virtual List<string> Validate()
+        {
+            List<string> errors = new List<string>();
 
-			return errors;
-		}
+            if (ALED != 0 && ALED != 1)
+            {
+                errors.Add("ALED must be 0 or 1.");
+            }
 
-		public virtual string Generate()
-		{
-			StringBuilder sml = new StringBuilder();
+            return errors;
+        }
 
-			sml.AppendLine("S5F3 W");
-			sml.AppendLine("<L [2]");
-			sml.AppendLine($"    <B [1] 0x{ALED:X2}>");
+        public virtual string Generate()
+        {
+            const string tab = "  ";
+            StringBuilder sml = new StringBuilder();
 
-			if (AllAlarms)
-			{
-				sml.AppendLine("    <L [0]>");
-			}
-			else
-			{
-				sml.AppendLine($"    <U4 [1] {ALID}>");
-			}
+            sml.AppendLine("S5F3 W");
+            sml.AppendLine("<L [2]");
+            sml.AppendLine($"{tab}{tab}<B [1] 0x{ALED:X2}>");
 
-			sml.AppendLine(">.");
+            if (AllAlarms)
+            {
+                sml.AppendLine($"{tab}{tab}<L [0]>");
+            }
+            else
+            {
+                sml.AppendLine($"{tab}{tab}<U4 [1] {ALID}>");
+            }
 
-			return sml.ToString();
-		}
-	}
+            sml.AppendLine(">.");
+
+            return sml.ToString();
+        }
+    }
 }

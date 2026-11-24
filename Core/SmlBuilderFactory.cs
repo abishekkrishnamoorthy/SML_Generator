@@ -1,18 +1,19 @@
-﻿Smlusing System;
+﻿using System.Collections.Generic;
+
 namespace SML_Generator
 {
-    public  class SmlBuilderFactory
-{
-	public SmlBuilderFactory()
-	{
-
-	}
-
-	public static SmlBuilder CreateSmlBuilder(string filePath)
+    public static class SmlBuilderFactory
+    {
+        public static void GetStatusVar(SmlBuilder smlcode)
         {
-            return new SmlBuilder(filePath);
+            List<ISecsCommand> commands = new List<ISecsCommand>
+            {
+                new S1F13Command(),
+                new S1F1Command(),
+                new S1F11Command()
+            };
+
+            smlcode.AddCommand(commands);
         }
-
-
-
     }
+}

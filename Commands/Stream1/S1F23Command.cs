@@ -8,7 +8,8 @@ namespace SML_Generator
         public List<uint> ECIDList { get; set; }
 
         public string Name => "S1F23";
-
+        public string Description =>
+            "Collection Event Namelist Request - Requests the available collection events and their data.";
         public S1F23Command()
         {
             ECIDList = new List<uint>();
@@ -21,6 +22,7 @@ namespace SML_Generator
 
         public virtual string Generate()
         {
+            const string tab = "  ";
             StringBuilder sml = new StringBuilder();
 
             sml.AppendLine("S1F23 W");
@@ -28,7 +30,7 @@ namespace SML_Generator
 
             foreach (uint ecid in ECIDList)
             {
-                sml.AppendLine($"    <U4 {ecid}>");
+                sml.AppendLine($"{tab}{tab}<U4 {ecid}>");
             }
 
             sml.AppendLine(">.");

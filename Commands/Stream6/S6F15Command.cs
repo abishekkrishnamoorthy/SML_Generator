@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace SML_Generator
 {
@@ -11,7 +7,8 @@ namespace SML_Generator
         public int CEID { get; set; }
 
         public string Name => "S6F15";
-
+        public string Description =>
+            "Event Report Request - Requests data for a specified collection event.";
         public S6F15Command()
         {
             CEID = 0;
@@ -24,13 +21,13 @@ namespace SML_Generator
 
         public virtual string Generate()
         {
+            const string tab = "  ";
             StringBuilder sml = new StringBuilder();
 
             sml.AppendLine("S6F15 W");
             sml.AppendLine("<L [1]");
 
-            // Collection Event ID
-            sml.AppendLine($"    <U4 {CEID}>");
+            sml.AppendLine($"{tab}{tab}<U4 {CEID}>");
 
             sml.AppendLine(">.");
 

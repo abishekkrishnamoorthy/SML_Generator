@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace SML_Generator
 {
@@ -11,7 +7,8 @@ namespace SML_Generator
         public int ReportID { get; set; }
 
         public string Name => "S6F19";
-
+        public string Description =>
+            "Individual Report Request - Requests the data in a specified report.";
         public S6F19Command()
         {
             ReportID = 0;

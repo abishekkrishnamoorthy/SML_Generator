@@ -23,7 +23,8 @@ namespace SML_Generator
         public List<EquipmentConstant> ConstantList { get; set; }
 
         public string Name => "S2F15";
-
+        public string Description =>
+            "New Equipment Constant Send - Requests updates to equipment constant values.";
         public S2F15Command()
         {
             ConstantList = new List<EquipmentConstant>();
@@ -38,10 +39,10 @@ namespace SML_Generator
 
             ConstantList = constantList;
         }
-        
 
         public virtual string Generate()
         {
+            const string tab = "  ";
             StringBuilder sml = new StringBuilder();
 
             sml.AppendLine("S2F15 W");
@@ -49,17 +50,15 @@ namespace SML_Generator
 
             foreach (EquipmentConstant constant in ConstantList)
             {
-                sml.AppendLine("    <L [2]");
+                sml.AppendLine($"{tab}{tab}<L [2]");
 
-                // Equipment Constant ID
                 sml.AppendLine(
-                    $"        <U4  {constant.Ecid}>");
+                    $"{tab}{tab}{tab}{tab}<U4  {constant.Ecid}>");
 
-                // Equipment Constant Value
                 sml.AppendLine(
-                    $"        <U4  {constant.Value}>");
+                    $"{tab}{tab}{tab}{tab}<U4  {constant.Value}>");
 
-                sml.AppendLine("    >");
+                sml.AppendLine($"{tab}{tab}>");
             }
 
             sml.AppendLine(">.");

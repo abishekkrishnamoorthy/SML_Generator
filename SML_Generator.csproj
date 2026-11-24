@@ -43,10 +43,38 @@
   </ItemGroup>
   <!-- Source Files -->
   <ItemGroup>
+    <Compile Include="Commands\Stream14\S14F1Command.cs" />
+    <Compile Include="Commands\Stream14\S14F3Command.cs" />
+    <Compile Include="Commands\Stream16\S16F17Command.cs" />
+    <Compile Include="Commands\Stream16\S16F19Command.cs" />
+    <Compile Include="Commands\Stream16\S16F1Command.cs" />
+    <Compile Include="Commands\Stream16\S16F21Command.cs" />
+    <Compile Include="Commands\Stream16\S16F23Command.cs" />
+    <Compile Include="Commands\Stream16\S16F29Command.cs" />
+    <Compile Include="Commands\Stream16\S16F3Command.cs" />
+    <Compile Include="Commands\Stream16\S16F5Command.cs" />
+    <Compile Include="Commands\Stream16\S16F7Command.cs" />
+    <Compile Include="Commands\Stream16\S16F9Command.cs" />
+    <Compile Include="Commands\Stream3\S3F17Command.cs" />
+    <Compile Include="Commands\Stream3\S3F19Command.cs" />
+    <Compile Include="Commands\Stream3\S3F21Command.cs" />
+    <Compile Include="Commands\Stream3\S3F23Command.cs" />
+    <Compile Include="Commands\Stream3\S3F25Command.cs" />
+    <Compile Include="Commands\Stream3\S3F27Command.cs" />
+    <Compile Include="Commands\Stream3\S3F31Command.cs" />
+    <Compile Include="Commands\Stream3\S3F33Command.cs" />
+    <Compile Include="Commands\Stream5\S5F3Command.cs" />
+    <Compile Include="Commands\Stream5\S5F5Command.cs" />
     <Compile Include="Commands\Stream6\S6F15Command.cs" />
     <Compile Include="Commands\Stream6\S6F19Command.cs" />
     <Compile Include="Commands\Stream6\S6F23Command.cs" />
+    <Compile Include="Commands\Stream7\S7F17Command.cs" />
+    <Compile Include="Commands\Stream7\S7F19Command.cs" />
+    <Compile Include="Commands\Stream7\S7F1Command.cs" />
+    <Compile Include="Commands\Stream7\S7F3Command.cs" />
+    <Compile Include="Commands\Stream7\S7F5Command.cs" />
     <Compile Include="Core\SmlBuilder.cs" />
+    <Compile Include="Core\SmlBuilderFactory.cs" />
     <Compile Include="ISecsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!-- Stream 1 -->
